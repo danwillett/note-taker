@@ -24,7 +24,7 @@ route.post('/', (req, res) => {
             noteId: uuid()
         }
         // Read existing note database
-        fs.readFile(`./db/db.json`, 'utf-8', (err, data) => {
+        fs.readFile(`../db/db.json`, 'utf-8', (err, data) => {
 
             if (err) {
                 console.error(err);
@@ -35,7 +35,7 @@ route.post('/', (req, res) => {
                 noteArray.push(newNote)
 
                 // write updated note object array to database
-                fs.writeFile('./db/db.json', JSON.stringify(noteArray, null, 4), (err) =>
+                fs.writeFile('../db/db.json', JSON.stringify(noteArray, null, 4), (err) =>
                     err ? console.error(err) : console.info(`\nData written to ./db/db.json`)
                 );
 
