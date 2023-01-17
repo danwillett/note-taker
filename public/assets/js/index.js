@@ -66,19 +66,16 @@ const renderActiveNote = () => {
   }
 };
 
-const handleNoteSave = () => { 
+const handleNoteSave = async () => { 
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
   };
-  console.log(`hey everyone, below is the note we're adding`)
-  console.log(newNote)
-  saveNote(newNote)
-  .then(() => {
-    getAndRenderNotes();
-    console.log('hey')
-    renderActiveNote();
-  });
+  await saveNote(newNote)
+  console.log("done")
+  await getAndRenderNotes()
+  
+   
 };
 
 // Delete the clicked note
