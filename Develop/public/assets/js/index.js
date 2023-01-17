@@ -66,13 +66,17 @@ const renderActiveNote = () => {
   }
 };
 
-const handleNoteSave = () => {
+const handleNoteSave = () => { 
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
   };
-  saveNote(newNote).then(() => {
+  console.log(`hey everyone, below is the note we're adding`)
+  console.log(newNote)
+  saveNote(newNote)
+  .then(() => {
     getAndRenderNotes();
+    console.log('hey')
     renderActiveNote();
   });
 };
@@ -88,7 +92,6 @@ const handleNoteDelete = (e) => {
   if (activeNote.id === noteId) {
     activeNote = {};
   }
-
   deleteNote(noteId).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -181,3 +184,4 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
